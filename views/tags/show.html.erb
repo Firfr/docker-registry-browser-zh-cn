@@ -6,17 +6,17 @@
       <%= content_tag :div, class: "card-header" do %>
         <%= image_tag "icons/tag.png", size: "75x75", align: "right" %>
 
-        <span class="text-muted small">Namespace</span>
+        <span class="text-muted small">命名空间</span>
         <h5 class="card-title mb-1"><%= @repository.namespace %></h5>
 
-        <span class="text-muted small">Image / Tag</span>
+        <span class="text-muted small">镜像 / 标签</span>
         <h5 class="card-title mb-1"><%= @repository.image %>:<%= @tag.name %></h5>
 
         <span class="text-muted small">Content Digest</span>
         <h5 class="card-title mb-1"><%= @tag.content_digest %></h5>
 
         <% if Rails.configuration.x.public_registry_url %>
-          <span class="text-muted small">Pull command</span>
+          <span class="text-muted small">拉取命令</span>
           <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
         <% end %>
       <% end %>

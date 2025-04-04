@@ -1,5 +1,5 @@
 <% if manifest.env.any? %>
-  <h5 class="mt-4">Environment</h5>
+  <h5 class="mt-4">环境变量</h5>
 
   <% manifest.env.sort.each do |env| %>
     <%- key, value = env.split("=", 2) %>

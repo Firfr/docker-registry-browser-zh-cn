@@ -1,4 +1,4 @@
-<h5 class="mt-4">History</h5>
+<h5 class="mt-4">镜像构建操作</h5>
 <div class="overflow-auto">
   <% manifest.history.each do |entry| %>
     <span class="text-muted small"><%= entry.created %> <% if entry.comment.present? %>(<%= entry.comment %>)<% end %></span>
