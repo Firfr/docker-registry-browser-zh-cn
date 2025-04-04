@@ -1,0 +1,47 @@
+<div class="card border-danger mb-3">
+  <div class="card-header bg-danger text-white">Danger Zone</div>
+  <div class="card-body">
+    <div class="media">
+      <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
+      <div class="media-body">
+        <h5 class="card-title mb-1">Delete Tag</h5>
+        <p class="card-text">
+          Please be careful as this will not just delete the reference but also the actual content!
+          <br /><br />
+          For example when you have <strong>latest</strong> and <strong>v1.2.3</strong> both pointing to the same image<br />
+          the deletion of <strong>latest</strong> will also permanently remove <strong>v1.2.3</strong>.
+        </p>
+
+        <a href="#" class="btn btn-danger px-4" data-toggle="modal" data-target="#delete-dialog">
+          Delete
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="delete-dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-danger" id="myModalLabel">Are you sure?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          This will permanently delete the <strong><%= @tag.name %></strong> docker tag.
+        </p>
+        <div class="form-group">
+          <%= label_tag :delete_confirm, "Please type in the name of the tag to enable the delete button." %>
+          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "Type here ..." %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+        <%= link_to "Delete", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
+      </div>
+    </div>
+  </div>
+</div>

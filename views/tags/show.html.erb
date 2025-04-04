@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <%= render "breadcrumb" %>
+
+    <div class="card border-docker mb-5">
+      <%= content_tag :div, class: "card-header" do %>
+        <%= image_tag "icons/tag.png", size: "75x75", align: "right" %>
+
+        <span class="text-muted small">Namespace</span>
+        <h5 class="card-title mb-1"><%= @repository.namespace %></h5>
+
+        <span class="text-muted small">Image / Tag</span>
+        <h5 class="card-title mb-1"><%= @repository.image %>:<%= @tag.name %></h5>
+
+        <span class="text-muted small">Content Digest</span>
+        <h5 class="card-title mb-1"><%= @tag.content_digest %></h5>
+
+        <% if Rails.configuration.x.public_registry_url %>
+          <span class="text-muted small">Pull command</span>
+          <%= render partial: "shared/copy_to_clipboard", locals: { name: :pull_cmd, value: pull_command(@repository.name, @tag.name) } %>
+        <% end %>
+      <% end %>
+
+      <div class="card-body">
+        <ul class="nav nav-tabs">
+          <% @tag.manifests.each do |manifest| %>
+            <li class="nav-item">
+              <a data-toggle="tab" class="nav-link <% if @tag.manifests.first == manifest %>active<% end %>" href="#<%= manifest.id %>">
+                <%= manifest.os %> / <%= manifest.architecture %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="tab-content">
+          <% @tag.manifests.each do |manifest| %>
+            <div class="tab-pane container <% if @tag.manifests.first == manifest %>active<% end %>" id="<%= manifest.id %>">
+              <%= render manifest %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <% if Rails.configuration.x.delete_enabled %>
+      <%= render "delete" %>
+    <% end %>
+  </div>
+</div>
