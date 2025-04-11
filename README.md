@@ -30,7 +30,20 @@
 2.  将压缩包解压，得到`views`文件夹
 3.  在服务器上创建目录 `/docker/registry-browser`，或其他自定义目录
 4.  将上面解压后的文件上传到设备上的 `/docker/registry-browser` 目录中
-5.  部署  
+5.  更改文件权限，防止报错
+    - 更改所有者
+      ```bash
+      chown -R 100:101 views
+      ```
+    - 更改权限
+      ```bash
+      chmod -R 755 views
+      ```
+    - 或者直接给最大权限
+      ```bash
+      chmod -R 777 views
+      ```
+6.  部署  
     在部署原项目`klausmeyer/docker-registry-browser:1.7.5`这个版本时，把上的文件`views`映射到日期中的`/app/app/views`
     - `compose.yaml`文件部署
       ```yaml
