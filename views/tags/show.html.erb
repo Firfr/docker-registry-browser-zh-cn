@@ -12,7 +12,7 @@
         <span class="text-muted small">镜像 / 标签</span>
         <h5 class="card-title mb-1"><%= @repository.image %>:<%= @tag.name %></h5>
 
-        <span class="text-muted small">Content Digest</span>
+        <span class="text-muted small">镜像摘要</span>
         <h5 class="card-title mb-1"><%= @tag.content_digest %></h5>
 
         <% if Rails.configuration.x.public_registry_url %>
