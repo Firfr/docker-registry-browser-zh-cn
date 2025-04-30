@@ -37,7 +37,7 @@ docker run --rm \
 
 > 部署这个项目的前提是要部署好`registry`这个镜像才可以！！！
 
-1.  从仓库的 发行版(Releases)处下载汉化文件压缩包 `views_1.7.5.zip`
+1.  从仓库的 发行版(Releases)处下载汉化文件压缩包 `Source code (zip)`
 2.  将压缩包解压，得到`views`文件夹
 3.  在服务器上创建目录 `/docker/registry-browser`，或其他自定义目录
 4.  将上面解压后的文件上传到设备上的 `/docker/registry-browser` 目录中
