@@ -4,7 +4,7 @@
 
 ## 汉化说明
 
-当前汉化仅适用于 版本：1.7.5
+当前汉化仅适用于 版本：1.8.1
 
 首先感谢原作者的开源。[原项目地址](https://github.com/klausmeyer/docker-registry-browser)
 
@@ -21,6 +21,17 @@
 如果这个项目有帮到你。欢迎 start。
 
 有其他的项目的汉化需求，欢迎提 issue。或其他方式联系通知。
+
+### 前端文件提取
+
+```bash
+docker run --rm \
+  -u root \
+  -e SECRET_KEY_BASE=klausmeyer_docker-registry-browser \
+  -v ./views:/views \
+  klausmeyer/docker-registry-browser:1.8.1 \
+  sh -c "cp -rf /app/app/views/* /views/ && echo '✅ 文件已复制并覆盖，容器即将退出'"
+```
 
 ### 部署汉化项目
 
