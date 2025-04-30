@@ -1,46 +1,44 @@
 <div class="card border-danger mb-3">
-  <div class="card-header bg-danger text-white">危险区域</div>
+  <div class="card-header bg-danger text-white">Danger Zone</div>
   <div class="card-body">
-    <div class="media">
-      <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
-      <div class="media-body">
-        <h5 class="card-title mb-1">删除标签(版本)</h5>
+    <div class="d-flex">
+      <div class="flex-shrink-0">
+        <%= image_tag "icons/danger.png", size: "50x50", class: "mr-3" %>
+      </div>
+      <div class="flex-grow-1 ms-3">
+        <h5 class="card-title mb-1">Delete Tag</h5>
         <p class="card-text">
-        请注意，这不仅会删除引用，还会删除实际内容！
+          Please be careful as this will not just delete the reference but also the actual content!
           <br /><br />
-          例如，当您有 <strong>latest</strong> 和 <strong>v1.2.3</strong> 都指向同一个镜像时，<br /> 
-          删除 <strong>latest</strong> 也会永久移除 <strong>v1.2.3</strong>。
+          For example when you have <strong>latest</strong> and <strong>v1.2.3</strong> both pointing to the same image<br />
+          the deletion of <strong>latest</strong> will also permanently remove <strong>v1.2.3</strong>.
         </p>
 
-        <a href="#" class="btn btn-danger px-4" data-toggle="modal" data-target="#delete-dialog">
-        删除
-        </a>
+        <button type="button" class="btn btn-danger px-4" data-bs-toggle="modal" data-bs-target="#delete-dialog">
+          Delete
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="delete-dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="delete-dialog" tabindex="-1">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title text-danger" id="myModalLabel">你确定吗？</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h1 class="modal-title fs-5 text-danger">Are you sure?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>
-        这将永久删除 <strong><%= @tag.name %></strong> Docker 标签。
-        </p>
-        <div class="form-group">
-          <%= label_tag :delete_confirm, "请输入标签的名称以启用删除按钮。" %>
-          <%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "在此处输入..." %>
-        </div>
+        <p>Do you really want to delete the following tag?</p>
+        <p class="font-monospace"><%= @tag.name %></p>
+        <p>Please enter the tag name below to confirm:</p>
+        <p><%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "Enter tag name here" %></p>
+        <p>This will enable the <strong>Delete</strong> button.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-        <%= link_to "删除", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <%= link_to "Delete", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
       </div>
     </div>
   </div>
