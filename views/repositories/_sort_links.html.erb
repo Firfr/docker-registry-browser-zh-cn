@@ -1,12 +1,12 @@
 <p class="text-right">
   <small>
-    <strong>Sort:</strong> [
-      <% {"api" => "API", "name" => "Name", "version" => "Version"}.each do |key, name| %>
+    <strong>排序:</strong> [
+      <% {"api" => "API", "name" => "名称", "version" => "版本"}.each do |key, name| %>
         <%= link_to name, {sort_tags_by: key, sort_tags_order: sort_tags_order}, class: class_names("text-reset", {"text-decoration-none": sort_tags_by != key}) %>
       <% end %>
     ]
-    <strong>Order:</strong> [
-      <% {"asc" => "ASC", "desc" => "DESC"}.each do |key, name| %>
+    <strong>排序方式:</strong> [
+      <% {"asc" => "升序", "desc" => "降序"}.each do |key, name| %>
         <%= link_to name, {sort_tags_order: key, sort_tags_by: sort_tags_by}, class: class_names("text-reset", {"text-decoration-none": sort_tags_order != key}) %>
       <% end %>
     ]

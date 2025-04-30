@@ -55,13 +55,13 @@ docker run --rm \
       chmod -R 777 views
       ```
 6.  部署  
-    在部署原项目`klausmeyer/docker-registry-browser:1.7.5`这个版本时，把上的文件`views`映射到日期中的`/app/app/views`
+    在部署原项目`klausmeyer/docker-registry-browser:1.8.1`这个版本时，把上的文件`views`映射到日期中的`/app/app/views`
     - `compose.yaml`文件部署
       ```yaml
       services:
         registry-browser:
           container_name: registry-browser
-          image: klausmeyer/docker-registry-browser:1.7.5
+          image: klausmeyer/docker-registry-browser:1.8.1
           network_mode: bridge
           restart: unless-stopped
           # 在部分NAS上如果部署报错，删除下面7行

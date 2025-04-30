@@ -2,22 +2,22 @@
   <div class="col-md-12">
     <div class="card card-border-blue">
       <div class="card-header py-0 pb-3">
-        <h4 class="h6 text-muted my-0 mt-3">Tag</h4>
+        <h4 class="h6 text-muted my-0 mt-3">标签</h4>
         <h6 class="h4 mb-0"><%= @repository.name %>:<%= @tag.name %></h6>
-        <span class="text-muted small">Content Digest: <%= @tag.content_digest %></span>
+        <span class="text-muted small">镜像摘要: <%= @tag.content_digest %></span>
       </div>
       <div class="card-body">
         <div class="p-2">
             <% if Rails.configuration.x.public_registry_url %>
-            <h5>Details</h5>
+            <h5>详情</h5>
 
-            <span class="text-muted small">Pull Command</span>
+            <span class="text-muted small">拉取命令</span>
             <p class="mb-1 font-monospace"><%= pull_command(@repository.name, @tag.name) %></p>
 
             <hr />
           <% end %>
 
-          <h5>Manifests</h5>
+          <h5>支持架构</h5>
         </div>
 
         <ul class="nav nav-tabs">

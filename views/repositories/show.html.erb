@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="card card-border-blue">
       <div class="card-header py-0">
-        <h4 class="h6 text-muted my-0 mt-3">Repository</h4>
+        <h4 class="h6 text-muted my-0 mt-3">镜像</h4>
         <h6 class="h4 mb-3"><%= @repository.name %></h6>
 
         <%= render "sort_links" if @tags.size > 1 %>
@@ -17,8 +17,8 @@
         </div>
       <% else %>
         <div class="card-body text-center py-5">
-          <h2>No tags</h2>
-          <h4 class="lead text-muted">No tags are available at the moment.</h4>
+          <h2>没有标签</h2>
+          <h4 class="lead text-muted">当前没有可用的标签。</h4>
         </div>
       <% end %>
     </div>
