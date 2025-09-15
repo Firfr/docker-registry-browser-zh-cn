@@ -14,7 +14,9 @@ Docker Registry Browser 是基于 Ruby 和 Rails 编写的 [Docker Registry HTTP
 
 这里汉化的不是源码，是从 docker 镜像中导出来的文件！
 
-本人提供这个项目及`registry`在 NAS、服务器等的有偿远程部署服务。有需要可联系。  
+欢迎关注我B站账号 [秦曱凧](https://space.bilibili.com/17547201) (读作 qín yuē zhēng)  
+
+有需要帮忙部署这个项目的朋友,一杯奶茶,即可程远程帮你部署，需要可联系。    
 微信号 `E-0_0-`  
 闲鱼搜索用户 `明月人间`  
 或者邮箱 `firfe163@163.com`  
