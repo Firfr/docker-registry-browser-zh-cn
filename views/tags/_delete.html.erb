@@ -8,14 +8,14 @@
       <div class="flex-grow-1 ms-3">
         <h5 class="card-title mb-1">删除标签(版本)</h5>
         <p class="card-text">
-        请注意，这不仅会删除引用，还会删除实际内容！
+          请注意，这不仅会删除引用，还会删除实际内容！
           <br /><br />
           例如，当您有 <strong>latest</strong> 和 <strong>v1.2.3</strong> 都指向同一个镜像时，<br />
           删除 <strong>latest</strong> 也会永久删除 <strong>v1.2.3</strong>。
         </p>
 
         <button type="button" class="btn btn-danger px-4" data-bs-toggle="modal" data-bs-target="#delete-dialog">
-        删除
+          删除
         </button>
       </div>
     </div>
@@ -34,11 +34,11 @@
         <p class="font-monospace"><%= @tag.name %></p>
         <p>请输入下方标签名称以确认：</p>
         <p><%= text_field_tag :delete_confirm, nil, class: "form-control", data: { expected: @tag.name }, placeholder: "在此处输入标签名称" %></p>
-        <p>输入后将启用“删除”按钮。</p>
+        <p>输入后将启用<strong>删除</strong>按钮。</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">取消</button>
-        <%= link_to "Delete", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
+        <%= link_to "删除", tag_path(@repository.name, @tag.name), data:{turbo_method: :delete}, id: "delete-button", class: "btn btn-danger disabled" %>
       </div>
     </div>
   </div>

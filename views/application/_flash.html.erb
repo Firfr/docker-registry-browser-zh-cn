@@ -12,7 +12,7 @@
             <% end %>
           </ul>
         <% else %>
-          <p class="mb-0"><%= body %></p>
+          <p class="mb-0"><% if (match = body.match(/^The tag (.+) has been deleted\.$/)) %><%= "标签 #{match[1]} 已被删除。".html_safe %><% else %><%= body %><% end %></p>
         <% end %>
       <% end if body.present? %>
 
